@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthly Challenge</title>
+    <title>{{ month | title }} Challenge</title>
 </head>
 <body>
-    <h1>This Month's Challenge</h1>
-    <h3>Walk for 20 minutes daily</h3>
+    <h1>{{ month | title }} Challenge</h1>
+    {% if challenges %}
+        <h3>{{ challenges | join:", " }}</h3>
+    {% else %}
+        <p>There is not challenge set for the month of {{ month | title }}</p>
+    {% endif %}
 </body>
 </html>

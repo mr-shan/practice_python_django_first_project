@@ -15,20 +15,22 @@ monthly_challenges = {
     "september": ["Start trining for cloud computing"],
     "october": ["Get certified in AWS and Azure"],
     "november": ["Start preparing for interviews"],
-    "december": ["Apply to new jobs now!!"],
+    "december": [],
 }
 
 # Create your views here.
 
 
 def index(request):
-    index_content = "<h1>12 Months Challenge Program</h1><ul>"
-    for item in monthly_challenges:
-        markup_href = reverse("challenges", args=[item])
-        item_markup = f"<li><a href='{markup_href}'>{item.title()}</a></li>"
-        index_content += item_markup
-    index_content += "</ul>"
-    return HttpResponse(index_content)
+    # index_content = "<h1>12 Months Challenge Program</h1><ul>"
+    # for item in monthly_challenges:
+    #     markup_href = reverse("challenges", args=[item])
+    #     item_markup = f"<li><a href='{markup_href}'>{item.title()}</a></li>"
+    #     index_content += item_markup
+    # index_content += "</ul>"
+    # return HttpResponse(index_content)
+    months = monthly_challenges.keys()
+    return render(request, "challenges/index.html", {"months": months})
 
 
 def monthly_challenge_by_number(request, month_index):
@@ -44,14 +46,18 @@ def monthly_challenge_by_number(request, month_index):
 
 def monthly_challenge(request, month):
     challenge = monthly_challenges.get(month)
-    if not challenge:
+    if month not in monthly_challenges:
         return render(request, "challenges/404.html")
     else:
-        
+
         # response_data = render_to_string("challenges/challenge.html")
         # return HttpResponse(response_data)
         res = f"<h1>Challenges for {month.title()}</h1><ol>"
         for item in challenge:
             res += f"<li>{item}</li>"
         res += "</ol>"
-        return render(request, "challenges/challenge.html")
+        dunamic_content = {
+            "month": month,
+            "challenges": challenge
+        }
+        return render(request, "challenges/challenge.html", dunamic_content)
