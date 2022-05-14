@@ -6,7 +6,7 @@ urlpatterns = [
     # path("january", views.january),
 
     # for all blank URLs this will be called.
-    path("", views.hello_world),
+    path("", views.index),
 
     # These are dynamic URLs, the dynamic parameter is linked to month
     # <month> acts like a keyword arguments
@@ -16,5 +16,5 @@ urlpatterns = [
     # the order here matters since all the numbers can be strings
     # other types supported: slug, uuid, path (https://docs.djangoproject.com/en/3.1/topics/http/urls/#path-converters)
     path("<int:month_index>", views.monthly_challenge_by_number),
-    path("<str:month>", views.monthly_challenge),
+    path("<str:month>", views.monthly_challenge, name="challenges"),
 ]
