@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'challenges'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,11 @@ ROOT_URLCONF = 'practice_python_django_first_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # BASE_DIR / "challenges" / "templates" 
+            # this feature should only be used for templates which are not part of any app and hence auto importing fails
+            # If templates are common to other apps, we can register template folder which is outside of any app
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
