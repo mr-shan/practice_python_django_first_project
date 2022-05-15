@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthly Challenges</title>
-</head>
-<body>
-    <h1>All monthly challenges</h1>
-    <ul>
-        {% for month in months  %}
-            <li><a href="{% url 'challenges' month %}">{{ month | title}}</a></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'layout.html' %} {% block title %} Monthly Challenges {% endblock %}
+{% block content %}
+{% include "challenges/partials/header.html" %}
+<h1 style="color: purple">All monthly challenges</h1>
+<ul>
+  {% for month in months %}
+  <li><a href="{% url 'challenges' month %}">{{ month | title}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock content %}

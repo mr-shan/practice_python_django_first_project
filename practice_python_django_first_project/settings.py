@@ -59,6 +59,7 @@ TEMPLATES = [
             # BASE_DIR / "challenges" / "templates" 
             # this feature should only be used for templates which are not part of any app and hence auto importing fails
             # If templates are common to other apps, we can register template folder which is outside of any app
+            BASE_DIR / "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {

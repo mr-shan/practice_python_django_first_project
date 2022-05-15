@@ -6,7 +6,7 @@ urlpatterns = [
     # path("january", views.january),
 
     # for all blank URLs this will be called.
-    path("", views.index),
+    path("", views.index, name="challenges_index"),
 
     # These are dynamic URLs, the dynamic parameter is linked to month
     # <month> acts like a keyword arguments
