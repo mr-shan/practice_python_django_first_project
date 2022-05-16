@@ -1,4 +1,4 @@
-{% extends 'layout.html' %} {% block title %} Monthly Challenges {% endblock %}
+{% extends 'layout.html' %} {% block title %} 404: Not Found {% endblock %}
 {% load static %}
 
 {% block css %}
@@ -9,12 +9,11 @@
 
 {% block content %}
   {% include "challenges/partials/header.html" %}
-  <h1 style="color: purple; margin-left: 1rem">All monthly challenges</h1>
+  <h3 style="color: purple; margin-left: 1rem; text-align: center">
+    <span style="color: red">404: </span>  
+    Oops! There's nothing here...
+  </h3>
   <hr>
   <br />
-  <ul>
-    {% for month in months %}
-    <li><a href="{% url 'challenges' month %}">{{ month | title}}</a></li>
-    {% endfor %}
-  </ul>
+  <p class="no-challenge-text">We could not find what you are looking for.</p>
 {% endblock content %}

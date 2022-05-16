@@ -1,0 +1,72 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* background: #eee; */
+  box-shadow: 0px 0px 5px 1px #bbb;
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 40rem;
+  margin: auto;
+}
+
+li a {
+  padding: 0.5rem 1rem;
+  background: rgb(237, 168, 100);
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 1px #999;
+  max-width: 10rem;
+  width: 8rem;
+  display: block;
+  text-decoration: none;
+  transition: all 0.15s ease-out;
+  color: rgb(100, 100, 100);
+  text-align: center;
+  font-size: 1rem;
+}
+
+li a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 4px 1px #aaa;
+}
+
+li a:active {
+  transform: translateY(1px);
+  box-shadow: 0px 0px 2px 1px #aaa;
+}
+
+hr {
+    margin: 0 1rem;
+    border: none;
+    border-bottom: solid 1px #ccc
+}
+
+.challenge-item {
+    color: rgb(100, 100, 100);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0.5rem 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.challenge-items {
+    box-shadow: 0px 0px 5px 1px #bbb;
+    max-width: 30rem;
+    margin: auto;
+    padding: 0.25rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.no-challenge-text {
+    margin: 0 1rem; font-size: 12px; color: grey; text-align: center;
+}

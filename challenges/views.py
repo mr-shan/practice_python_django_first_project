@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.template.loader import render_to_string
 
@@ -41,13 +41,21 @@ def monthly_challenge_by_number(request, month_index):
         print(url_redirect)
         return HttpResponseRedirect(url_redirect)
     else:
-        return render(request, "challenges/404.html")
+        # render does not show valid 404 response on client side.
+        # return render(request, "challenges/404.html") 
+        
+        # this will show django's default 404 page
+        # In order for Http404 to work, you must raise it and not return it.
+        raise Http404() 
 
 
 def monthly_challenge(request, month):
     challenge = monthly_challenges.get(month)
     if month not in monthly_challenges:
-        return render(request, "challenges/404.html")
+        # return render(request, "challenges/404.html") 
+        # does not show 404 valid response status with render method
+        response_404 = render_to_string("404.html")
+        return HttpResponseNotFound(response_404)
     else:
 
         # response_data = render_to_string("challenges/challenge.html")
